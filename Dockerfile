@@ -5,7 +5,7 @@ RUN apk add php php-fpm bash curl \
 php-bcmath php-ctype php-fileinfo php-json php-mbstring php-openssl php-pdo php-tokenizer php-xml \
 php-curl php-zip php-gd php-intl php-opcache php-phar php-session \
 php7-mcrypt php-sodium \
-php-pgsql
+php-pgsql php-pdo_pgsql php-mysqlnd php-pdo_mysql
 
 ADD https://raw.githubusercontent.com/JonnyRodriguez/php-fpm-alpine/master/mongodb.so /usr/lib/php7/modules
 
