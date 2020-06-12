@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+
+  #PHP Service
+  phpfpm:
+    image: tiendabtc/php-fpm-alpine
+    volumes:
+      - /var/www/html:/var/www/html
+      - ./php7/php-fpm.d/:/etc/php7/php-fpm.d/:ro
+#      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+#    ports:
+#      - 9000:9000
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 9876:80
+    volumes:
+      - /var/www/html:/var/www/html
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
