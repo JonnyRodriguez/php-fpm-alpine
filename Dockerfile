@@ -7,7 +7,7 @@ php-curl php-zip php-gd php-intl php-opcache php-phar \
 php7-mcrypt php-sodium \
 php-pgsql
 
-COPY mongodb.so /usr/lib/php7/modules
+ADD https://raw.githubusercontent.com/JonnyRodriguez/php-fpm-alpine/master/mongodb.so /usr/lib/php7/modules
 
 RUN echo "extension=mongodb.so" > /etc/php7/conf.d/mongodb.ini
 
